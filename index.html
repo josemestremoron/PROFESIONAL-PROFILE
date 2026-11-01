@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JM AUTOS — Professional profile in the automotive industry.">
+  <meta name="theme-color" content="#101010">
+  <title>JM AUTOS | Professional Profile</title>
+  <style>
+    :root {
+      --bg: #0b0c0d; --panel: #141516; --panel2: #191a1b;
+      --gold: #c8a96b; --gold-light: #e2c88e; --text: #f5f3ef;
+      --muted: #a8a49b; --line: rgba(200,169,107,.23);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, "Segoe UI", Arial, sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin: auto; }
+    header { position: absolute; z-index: 5; inset: 0 0 auto; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .nav { height: 86px; display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; }
+    .brand img { display:block; width:150px; height:76px; object-fit:contain; }
+    nav { display:flex; gap:32px; color:#dedbd4; font-size:12px; text-transform:uppercase; letter-spacing:.13em; }
+    nav a:hover { color:var(--gold-light); }
+    .hero { min-height: 760px; display:flex; align-items:center; position:relative; overflow:hidden; background:
+      linear-gradient(90deg, rgba(8,9,10,.96) 0%, rgba(8,9,10,.82) 43%, rgba(8,9,10,.24) 100%),
+      linear-gradient(0deg, #0b0c0d 0%, transparent 28%),
+      url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=88") center 54%/cover no-repeat;
+    }
+    .hero:after { content:""; position:absolute; inset:0; background:linear-gradient(115deg, transparent 45%, rgba(200,169,107,.07)); pointer-events:none; }
+    .hero-content { position:relative; z-index:1; padding-top:100px; max-width:690px; }
+    .eyebrow { color:var(--gold); font-size:11px; letter-spacing:.28em; text-transform:uppercase; font-weight:700; }
+    h1 { margin:22px 0 18px; font-size:clamp(48px,7vw,86px); line-height:.99; letter-spacing:-.055em; font-weight:650; }
+    h1 span { color:var(--gold-light); }
+    .hero p { color:#d0cec8; max-width:510px; font-size:17px; margin:0 0 34px; }
+    .button { display:inline-flex; align-items:center; gap:12px; padding:15px 21px; border:1px solid var(--gold); color:var(--gold-light); text-transform:uppercase; letter-spacing:.13em; font-size:11px; font-weight:700; transition:.2s; }
+    .button:hover { background:var(--gold); color:#101010; }
+    .button:after { content:"↘"; font-size:16px; }
+    .hero-note { position:absolute; right:0; bottom:64px; z-index:1; color:rgba(255,255,255,.58); font-size:10px; letter-spacing:.2em; text-transform:uppercase; writing-mode:vertical-rl; }
+    section { padding:105px 0; }
+    .section-kicker { color:var(--gold); text-transform:uppercase; letter-spacing:.23em; font-size:10px; font-weight:700; margin-bottom:16px; }
+    h2 { font-size:clamp(32px,4vw,48px); letter-spacing:-.04em; line-height:1.1; margin:0 0 25px; font-weight:600; }
+    .about-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:90px; align-items:start; }
+    .about-side { border-left:1px solid var(--gold); padding:8px 0 8px 24px; color:var(--muted); font-size:13px; letter-spacing:.04em; }
+    .profile-copy { color:#d1cec7; font-size:17px; max-width:700px; margin:0; }
+    .profile-copy strong { color:var(--gold-light); font-weight:600; }
+    .skills { background:#101112; border-top:1px solid rgba(255,255,255,.05); border-bottom:1px solid rgba(255,255,255,.05); }
+    .skills-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:42px; }
+    .skills-head p { max-width:330px; color:var(--muted); font-size:13px; margin:0 0 5px; }
+    .skill-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .skill { min-height:190px; padding:26px 23px; background:linear-gradient(145deg,#1a1b1c,#111213); border:1px solid var(--line); }
+    .skill-num { color:var(--gold); font-size:11px; letter-spacing:.15em; }
+    .skill h3 { margin:34px 0 8px; font-size:17px; font-weight:550; }
+    .skill p { margin:0; color:var(--muted); font-size:12px; }
+    .audio { padding:95px 0; }
+    .audio-card { border:1px solid var(--line); background:linear-gradient(120deg,#191a1b,#101112); padding:38px 42px; display:flex; justify-content:space-between; align-items:center; gap:30px; }
+    .audio-card h2 { font-size:30px; margin:0 0 8px; }
+    .audio-card p { color:var(--muted); margin:0; font-size:13px; }
+    .audio-control { min-width:260px; }
+    audio { width:100%; accent-color:var(--gold); }
+    .audio-pending { border:1px dashed rgba(200,169,107,.45); padding:15px 18px; color:#c5b99f; font-size:12px; text-align:center; }
+    footer { border-top:1px solid rgba(255,255,255,.1); padding:28px 0; color:#8d8a83; font-size:10px; letter-spacing:.15em; text-transform:uppercase; }
+    .footer-row { display:flex; justify-content:space-between; gap:20px; }
+    @media(max-width:800px) {
+      .hero { min-height:680px; background-position:58% center; }
+      nav { gap:15px; font-size:10px; }
+      .about-grid { grid-template-columns:1fr; gap:28px; }
+      .skill-grid { grid-template-columns:repeat(2,1fr); }
+      .skills-head { display:block; }
+      .skills-head p { margin-top:16px; }
+      .audio-card { display:block; padding:28px; }
+      .audio-control { margin-top:25px; min-width:0; }
+    }
+    @media(max-width:520px) {
+      .wrap { width:min(100% - 34px,var(--max)); }
+      .nav { height:72px; }
+      nav { gap:11px; }
+      nav a { font-size:9px; }
+      .brand img { width:116px; height:65px; }
+      .hero { min-height:650px; }
+      .hero p { font-size:15px; }
+      section { padding:75px 0; }
+      .skill-grid { grid-template-columns:1fr 1fr; gap:9px; }
+      .skill { min-height:170px; padding:19px 15px; }
+      .skill h3 { font-size:14px; }
+      .footer-row { flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="JM AUTOS home">
+        <img src="assets/jm-autos-logo.png" alt="JM AUTOS — Compraventa de vehículos">
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#profile">Profile</a>
+        <a href="#skills">Skills</a>
+        <a href="#audio">Audio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-content">
+          <div class="eyebrow">Automotive business · Professional profile</div>
+          <h1>Driven by passion.<br><span>Focused on</span><br>excellence.</h1>
+          <p>A professional profile shaped by an interest in the automotive industry, vehicle sales, and business development.</p>
+          <a class="button" href="#profile">Discover my profile</a>
+        </div>
+      </div>
+      <div class="hero-note">JM AUTOS · Buy &amp; Sell Vehicles</div>
+    </section>
+
+    <section id="profile">
+      <div class="wrap about-grid">
+        <div>
+          <div class="section-kicker">01 / About me</div>
+          <h2>My professional<br>profile.</h2>
+          <div class="about-side">A growing interest in the automotive industry and the business behind every vehicle.</div>
+        </div>
+        <div>
+          <p class="profile-copy">I am interested in the automotive industry, especially buying and selling vehicles. Through <strong>JM AUTOS</strong>, I focus on vehicle management, inventory organization, and business development. I enjoy learning about cars, technology, and business administration. I consider myself responsible, organized, and motivated to improve my skills. My goal is to help JM AUTOS grow, provide excellent service, and build trust with every customer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills" id="skills">
+      <div class="wrap">
+        <div class="skills-head">
+          <div>
+            <div class="section-kicker">02 / What I bring</div>
+            <h2>Skills &amp; interests.</h2>
+          </div>
+          <p>Key areas connected to vehicle buying and selling and the day-to-day development of an automotive business.</p>
+        </div>
+        <div class="skill-grid">
+          <article class="skill"><div class="skill-num">01</div><h3>Vehicle Sales</h3><p>Understanding the buying and selling process.</p></article>
+          <article class="skill"><div class="skill-num">02</div><h3>Inventory Organization</h3><p>Keeping vehicle information clear and organized.</p></article>
+          <article class="skill"><div class="skill-num">03</div><h3>Business Development</h3><p>Learning how to improve and grow a business.</p></article>
+          <article class="skill"><div class="skill-num">04</div><h3>Customer Service</h3><p>Building trust through responsible communication.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="audio" id="audio">
+      <div class="wrap">
+        <div class="section-kicker">03 / Audio presentation</div>
+        <div class="audio-card">
+          <div>
+            <h2>Listen to my profile.</h2>
+            <p>English audio presentation · Personal recording</p>
+          </div>
+          <div class="audio-control" id="audioArea">
+            <audio id="profileAudio" controls preload="metadata">
+              <source src="audio-profile.mp3" type="audio/mpeg">
+              Your browser does not support the audio player.
+            </audio>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>JM AUTOS · Professional Profile</span>
+      <span>Automotive industry · Buying &amp; selling vehicles</span>
+    </div>
+  </footer>
+
+</body>
+</html>
